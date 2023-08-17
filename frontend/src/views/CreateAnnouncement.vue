@@ -98,7 +98,7 @@ const submit = async()=>{
 </script>
  
 <template>
-<div  class="w-ful h-full flex flex-col bg-indigo-500">
+<div  class="p-4 sm:ml-64 flex flex-col bg-indigo-500">
 
 
     <!-- Add Announcement Title -->

@@ -1,7 +1,7 @@
 <script setup>
 import {ref, onMounted } from 'vue';
 import { useRoute ,useRouter } from 'vue-router'
-import { formatDate } from '../composable/formatDate'
+import { formatDate } from '../../composable/formatDate'
 const router = useRouter()
 const { params } = useRoute()
 const API_ROOT = import.meta.env.VITE_API_ROOT
@@ -38,7 +38,7 @@ const editAnnouncement = (announcementId) =>{
 </script>
 
 <template>
-     <div class="w-full" style="background-color: #83a8f3;">
+     <div class="p-4 sm:ml-64" style="background-color: #83a8f3;">
         <h1 class="ml-10 font-bold text-2xl mb-1.5" style="line-height: 2.5;">Announcement Detail :</h1>
         <div class="container">
             <div class="announcement">
