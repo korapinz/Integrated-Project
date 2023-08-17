@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `username` VARCHAR(45) NOT NULL,
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(150) NULL,
-  `role` ENUM('admin', 'announcer') NULL,
+  `role` ENUM('admin', 'announcer') NOT NULL DEFAULT 'announcer',
   `createdOn` DATETIME NULL,
   `updatedOn` DATETIME NULL,
   PRIMARY KEY (`userId`),
