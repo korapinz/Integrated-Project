@@ -29,7 +29,7 @@ public class UserService {
     }
 
     //Create User
-public User createUser(UserDTO userDTO){
+    public User createUser(UserDTO userDTO){
         User newUser = new User();
         newUser.setUsername(userDTO.getUsername());
         newUser.setName(userDTO.getName());
@@ -44,7 +44,19 @@ public User createUser(UserDTO userDTO){
     }
 
     //Update User
+    public User updateUser(int id, UserDTO userDTO){
+        User editUser = getUserById(id);
+        editUser.setUsername(userDTO.getUsername());
+        editUser.setName(userDTO.getName());
+        editUser.setEmail(userDTO.getEmail());
+        editUser.setRole(userDTO.getRole());
 
+        Instant now = Instant.now();
+        editUser.setUpdatedOn(now); // Update the updatedOn timestamp
+
+        //Error Time!!!!
+        return editUser;
+    }
 
     // Delete User
     public User deleteUser(int id) {
