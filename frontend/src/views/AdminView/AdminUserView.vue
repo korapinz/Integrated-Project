@@ -1,5 +1,40 @@
 <script setup>
+import {ref,onMounted} from 'vue'
+const userData = ref([])
+const API_ROOT = import.meta.env.VITE_API_ROOT
 
+onMounted(async()=>{
+  userData.value = await loadData()
+})
+
+const loadData = async() => {
+  try{
+    const res = await fetch(API_ROOT+"/api/announcements")
+    if(res.ok){
+      const data = await res.json()
+      return data
+    }else{
+      throw new Error('could not load data')
+    }
+    
+  } catch (error) {
+    console.log(`ERROR: ${error}`)
+  }
+}
+
+const showUserDetail = (userId) =>{
+  router.push({
+    name : 'AddminUserDetail',
+    params : {id : userId}
+  })
+}
+
+const deleteUser = async (userId) =>{
+  router.push({
+    name : 'deleteAnnounce',
+    params : {id : userId}
+  })
+}
 </script>
  
 <template>
@@ -44,10 +79,10 @@
         <th>Role</th>
         <th>Created On</th>
         <th>Updated On</th>
-        <th>Action</th>
+        <th class="flex justify-center">Action</th>
       </tr>
     </thead>
-    <tbody v-if="announcementData !== null || announcementData.length !== 0">
+    <tbody v-if="userData !== null || userData.length !== 0">
           <tr class="ann-item" v-for="user,index in userData">
             <th>{{ ++index }}</th>
             <td class="ann-username">{{ user.username }}</td>
@@ -57,8 +92,8 @@
             <td class="ann-created-on">{{ user.created }}</td>
             <td class="ann-updated-on">{{ user.updated }}</td>
             <td class="flex justify-center space-x-2">
-              <button @click="edit(user.id)"  class="ann-button border border-gray-600 p-1 pl-4 pr-4 border-y-6 bg-gray-500 rounded-md btn-sm btn">view</button>
-              <button @click="deletet(user.id)"  class="ann-button border border-red-600 p-1 pl-3 pr-3 border-y-6 bg-red-600 rounded-md btn-sm btn">delete</button>
+              <button @click="showUserDetail(user.id)"  class="ann-button border border-gray-600 p-1 pl-4 pr-4 border-y-6 bg-gray-500 rounded-md btn-sm btn">view</button>
+              <button @click="deleteUser(user.id)"  class="ann-button border border-red-600 p-1 pl-3 pr-3 border-y-6 bg-red-600 rounded-md btn-sm btn">delete</button>
             </td>
           </tr>
         </tbody>

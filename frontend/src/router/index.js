@@ -7,7 +7,9 @@ import UpdateAnnouncement from '../views/UpdateAnnouncement.vue'
 import UserAnnView from '../views/UserView/UserAnnView.vue'
 import UserAnnDetail from '../views/UserView/UserAnnDetail.vue'
 import AdminUserView from '../views/AdminView/AdminUserView.vue'
-import AddUserView from '../views/AdminView/AddUserView.vue'
+import AdminAddUser from '../views/AdminView/AdminAddUser.vue'
+import AdminEditUser from '../views/AdminView/AdminEditUser.vue' 
+import AdminUserDetail from '../views/AdminView/AdminUserDetail.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -53,9 +55,21 @@ const router = createRouter({
     },
     {
       path: '/admin/user/add',
-      name: 'AddUserView',
-      component: AddUserView
+      name: 'AdminAddUser',
+      component: AdminAddUser
+    },
+    {
+      path: '/admin/user/:id/edit',
+      name: 'AdminEditUser ',
+      component: AdminEditUser
+    },
+    {
+      path: '/admin/user/:id',
+      name: 'AdminUserDetail',
+      component: AdminUserDetail
     }
+
+
   ]
 })
 
