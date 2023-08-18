@@ -1,7 +1,7 @@
 <script setup>
 import {ref, onMounted } from 'vue';
 import { useRoute ,useRouter } from 'vue-router'
-import { formatDate } from '../composable/formatDate'
+import { formatDate } from '../../composable/formatDate'
 
 const router = useRouter()
 const { params } = useRoute()
@@ -32,7 +32,7 @@ const loadDetail = async () =>{
 </script>
 
 <template>
-    
+    <div class="p-4 sm:ml-64">
     <div class="w-full h-full flex">
         
         <div class="w-full flex flex-col p-5 m-5 pb-40 rounded-lg border-2 border-gray-300 shadow-xl ">
@@ -61,11 +61,10 @@ const loadDetail = async () =>{
                 <div class="chat-bubble">Would you like to know more announcements? Let's Click on the back button</div>
             </div>    
             </div>
-                <img class="w-40" src="../assets/images/raven.gif" alt="GIF"/>
+                <img class="w-40" src="../../assets/images/raven.gif" alt="GIF"/>
             </div>
-    </div>
-        
-  
+    </div>  
+</div>
 </template>
 
 <style scoped>

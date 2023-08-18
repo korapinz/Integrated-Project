@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
-import { formatDate } from '../composable/formatDate'
+import { formatDate } from '../../composable/formatDate'
 
 const announcementData = ref([])
 
@@ -46,21 +46,21 @@ const deleteAnnouncement = async (announcementId) =>{
 
 </script>
 <template>
-   
-   <div class="w-full m-2 flex flex-row">
-    
-        <!-- DateTime of Local User -->
-        <div class="text-lg font-semibold p-2 mt-2">
-            <h3>Date/Time shown in Timezone : <span class="text-green-700">{{ Intl.DateTimeFormat().resolvedOptions().timeZone }}</span></h3>
-        </div>
+   <div class="sm:ml-64">
+    <div class="w-full m-2 flex flex-row">
+      
+          <!-- DateTime of Local User -->
+          <div class="flex w-full text-lg font-semibold p-2 items-center">
+              <h3>Date/Time shown in Timezone : <span class="text-green-700">{{ Intl.DateTimeFormat().resolvedOptions().timeZone }}</span></h3>
+          </div>
 
-        <!-- Add Announcement-->
-        <div class=" w-full  p-2 mt-2  justify-end flex  ">
-            <router-link to="/admin/announcement/add">
-              <button class="ann-button btn btn-accent rounded-3xl text-white mr-5">Add Announcement</button>
-            </router-link>
-        </div>
-  </div>
+          <!-- Add Announcement-->
+          <div class=" w-full p-2 justify-end flex  ">
+              <router-link to="/admin/announcement/add">
+                <button class="ann-button btn btn-accent rounded-3xl text-white mr-5">Add Announcement</button>
+              </router-link>
+          </div>
+    </div>
 
 
       <!-- All Announcement -->
@@ -97,16 +97,16 @@ const deleteAnnouncement = async (announcementId) =>{
       
       <div class="flex flex-row">
         <div class="w-full flex justify-start mt-10 ">  
-              <img class="w-52" src="../assets/images/mafu.png"/>
+              <img class="w-52" src="../../assets/images/mafu.png"/>
         </div>
 
         <div class="w-full h-auto mt-20 flex justify-end mb-0">
-            <img class="flex ml-72" src="../assets/images/pow2.gif"/>
+            <img class="flex ml-72" src="../../assets/images/pow2.gif"/>
         </div>
 
       </div>
   </div>
-
+</div>
 </template>
 
 <style>
