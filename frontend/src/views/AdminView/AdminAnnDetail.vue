@@ -38,15 +38,31 @@ const editAnnouncement = (announcementId) =>{
 </script>
 
 <template>
-     <div class="p-4 sm:ml-64" style="background-color: #83a8f3;">
-        <h1 class="ml-10 font-bold text-2xl mb-1.5" style="line-height: 2.5;">Announcement Detail :</h1>
-        <div class="container">
-            <div class="announcement">
-                <img src="../assets/images/jett.png" alt="Girl in a jacket" width="200" height="200">
-                <h1 class="text-lg font-bold">You can edit your data. Just click at EDIT button!</h1>
-                <button @click="editAnnouncement(announcementDetail.id)" class="ann-button ml-10 mb-6 btn border border-blue-600 bg-blue-700">Edit</button>
+     <div class="sm:ml-64">
+       
+        <div class="flex w-full">
+
+            <div class="flex w-2/6 justify-end items-center">
+                <img src="../../assets/images/detail.png" class="h-16">
             </div>
+            
+        
+
+            <div class="w-2/6 flex justify-center items-center">
+                <h1 class="ml-10 font-bold text-4xl mb-1.5" style="line-height: 2.5;">Announcement Detail</h1>
+            </div>
+
+                 <!-- Button -->
+            <div class="w-2/6 flex justify-end items-end p-2 pr-10">
+                <button @click="editAnnouncement(announcementDetail.id)" class="ann-button edit-btn"><img src="../../assets/images/edit.png" class="h-10"></button>
+                
+            </div>
+
         </div>
+
+       
+
+        <!-- Information -->
         <div class=" ml-10 mr-10 mb-10 border-black border-2 p-10 rounded-lg" style=" background-color: #ffffff;line-height:50px " >
             <table class="ann-item">
                 <tr >
@@ -82,40 +98,10 @@ const editAnnouncement = (announcementId) =>{
 </div>
 </template>
 <style>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 20px;
-  margin-left: 20px;
-}
 
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.announcement {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
-  padding: 20px;
-  background-color: #eee;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.announcement img {
-  margin-right: 20px;
-}
 
 .edit-btn {
-  background-color: #007aff;
-  color: #fff;
+  background-color: #ffffff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;

@@ -22,9 +22,12 @@
         
         <!-- button Add User -->
         <div class="w-full flex justify-end">
+          <router-link to="/admin/user/add">
             <button class="btn btn-neutral">
                 <img class="h-8 mr-1" src="../../assets/images/add-user.png" alt="GIF"/>
-                Add User</button>
+                Add User
+            </button>
+          </router-link>
         </div>
     </div>
 

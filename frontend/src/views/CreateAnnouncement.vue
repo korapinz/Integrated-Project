@@ -98,14 +98,20 @@ const submit = async()=>{
 </script>
  
 <template>
-<div  class="p-4 sm:ml-64 flex flex-col bg-indigo-500">
+<div  class="p-4 sm:ml-64 flex flex-col">
 
 
     <!-- Add Announcement Title -->
-        <h1 class="ml-10 mb-3 font-bold flex w-full text-shadow text-white text-3xl m-5">Add Announcement :</h1>
+
+    <div class="flex flex-row items-center justify-center mt-2">
+        <div><img src="../assets/images/add.png" class="h-20"></div>
+        <div><h1 class="ml-10 mb-3 font-bold flex w-full text-3xl m-5">Add Announcement</h1></div>
+    </div>
+       
         
     <!-- Announcements and Img -->
-        <div  class="flex flex-row bg-indigo-200 p-10 shadow-2xl rounded-lg ml-10 mr-10 border-blue-900">
+        <div  class="flex flex-row p-10 shadow-2xl rounded-lg ml-10 mr-10 mt-5 border  border-gray-200">
+            
         
             
         <!-- ข้อมูลที่ต้องกรอก -->
@@ -113,7 +119,7 @@ const submit = async()=>{
 
             <!-- Title -->
                 <span class="block text-sm text-slate-700  mb-2 font-bold" style="font-size: 16px;">Title : <span class="text-red-700">*<span class="text-sm">กรอกได้ไม่เกิน 200 ตัวอักษร</span></span></span>
-                <input rows="5" type="text" placeholder="Type your title here..." class="ann-title input input-bordered textarea-md  w-3/5 max-w-xs border-4 border-blue-900 " style="font-size: 16px;" maxlength="200" v-model="title" required/>
+                <input rows="5" type="text" placeholder="Type your title here..." class="ann-title input input-bordered textarea-md  w-3/5 max-w-xs border-2" style="font-size: 16px;" maxlength="200" v-model="title" required/>
             
 
             <!-- Category -->
@@ -122,7 +128,7 @@ const submit = async()=>{
                   Category :
                   <span class="text-red-700">*</span>
                 </span>
-                <select name="category" class=" rounded-md p-1 ann-category border-4 border-blue-900" v-model="category">
+                <select name="category" class=" rounded-md p-1 ann-category border-2" v-model="category">
                     <option :value="undefined" disabled>--Please select category--</option>
                     <option v-for="category in categories" :value="category.categoryId">{{ category.announcementCategory }}</option>
                 </select>
@@ -131,21 +137,21 @@ const submit = async()=>{
             <!-- Description -->
             <label class="block  mt-5 ">
                 <span class="block text-sm font-bold text-slate-700  mb-2" style="font-size: 16px;">Description : <span class="text-red-700">*<span class="text-sm">กรอกได้ไม่เกิน 10000 ตัวอักษร</span></span></span>
-                <textarea placeholder="Type your description here..." class="ann-description textarea textarea-bordered textarea-md w-full max-w-xs border-4 border-blue-900" style="font-size: 16px;" maxlength="10000" v-model="description"></textarea>
+                <textarea placeholder="Type your description here..." class="ann-description textarea textarea-bordered textarea-md w-full max-w-xs border-2" style="font-size: 16px;" maxlength="10000" v-model="description"></textarea>
             </label>
                 
             <!-- Publish Date -->
             <label class="block ">
                 <span class="block text-sm font-bold text-slate-700  mb-2 " style="font-size: 16px;">Publish Date :</span>
-                <input type="date" class="ann-publish-date pl-3 pr-5 h-10 rounded-md mr-5 mb-3 border-4 border-blue-900" v-model="pDate">
-                <input type="time" class="ann-publish-time rounded-md pl-5 pr-5 h-10 ml-5 border-4 border-blue-900" v-model="pTime">
+                <input type="date" class="ann-publish-date pl-3 pr-5 h-10 rounded-md mr-5 mb-3 border-2" v-model="pDate">
+                <input type="time" class="ann-publish-time rounded-md pl-5 pr-5 h-10 ml-5 border-2" v-model="pTime">
             </label>  
 
            <!-- Close Date -->
            <label class="block ">
                 <span class="block text-sm font-bold text-slate-700   mt-2 " style="font-size: 16px;">Close Date :</span>
-                <input type="date" class="ann-close-date pl-3 pr-5 h-10 rounded-md mr-5 mb-3 border-4 border-blue-900" v-model="cDate">
-                <input class="ann-close-time  rounded-md pl-5 pr-5 h-10 ml-5 border-4 border-blue-900" type="time" v-model="cTime">
+                <input type="date" class="ann-close-date pl-3 pr-5 h-10 rounded-md mr-5 mb-3 border-2" v-model="cDate">
+                <input class="ann-close-time  rounded-md pl-5 pr-5 h-10 ml-5 border-2" type="time" v-model="cTime">
             </label>  
 
            <!-- Display -->
@@ -158,15 +164,15 @@ const submit = async()=>{
         </div>
         
      
-        <img src="../assets/images/book.gif" class="flex m-40 w-auto mb-28"/>
-   
+        <!-- <img src="../assets/images/neko-mafumafu.gif" class="flex m-40 w-auto mb-28"/>
+    -->
 
 
         </div>
         
 
             <!-- Button -->
-        <div class="m-3 flex space-x-5 pb-3">
+        <div class="m-3 flex space-x-5 pb-3 mt-5">
             <button @click="submit()" class="ann-button ann-submit ml-10 btn border border-green-500 bg-green-500 pl-5 pr-5" type="submit" :disabled="submitBtn">Submit</button>
             <button @click="cancel()" class="ann-button ann-submit ml-10 btn border border-gray-500 bg-gray-500 pl-5 pr-5">Cancel</button>
         </div>
@@ -179,6 +185,6 @@ const submit = async()=>{
 
 <style scoped>
 .text-shadow {
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); /* Add desired shadow properties */
+  text-shadow: 2px 4px 4px rgba(0, 0, 0.5, 0.5); /* Add desired shadow properties */
 }
 </style>

@@ -46,16 +46,16 @@ const deleteAnnouncement = async (announcementId) =>{
 
 </script>
 <template>
-   <div class="p-4 sm:ml-64">
+   <div class="sm:ml-64">
     <div class="w-full m-2 flex flex-row">
       
           <!-- DateTime of Local User -->
-          <div class="text-lg font-semibold p-2 mt-2">
+          <div class="flex w-full text-lg font-semibold p-2 items-center">
               <h3>Date/Time shown in Timezone : <span class="text-green-700">{{ Intl.DateTimeFormat().resolvedOptions().timeZone }}</span></h3>
           </div>
 
           <!-- Add Announcement-->
-          <div class=" w-full  p-2 mt-2  justify-end flex  ">
+          <div class=" w-full p-2 justify-end flex  ">
               <router-link to="/admin/announcement/add">
                 <button class="ann-button btn btn-accent rounded-3xl text-white mr-5">Add Announcement</button>
               </router-link>
