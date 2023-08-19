@@ -47,7 +47,7 @@ public class User {
     }
 
     @JsonIgnore
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.REMOVE)
     private Set<Announcement> announces = new LinkedHashSet<>();
 
 
