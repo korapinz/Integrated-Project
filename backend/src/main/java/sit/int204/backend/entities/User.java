@@ -30,24 +30,26 @@ public class User {
     private UserRoleEnum role;
 
     @Column(name = "createdOn", length = 200)
-    private Instant createdOn;
+    private Instant  createdOn;
     @Column(name = "updatedOn", length = 200)   //error เพราะ ตัวอักษรตก d
     private Instant updatedOn;
 
+
     @PrePersist
     public void setCreatedOn() {
-        this.createdOn = Instant.now();
-        this.updatedOn = Instant.now();
+        this.createdOn = Instant .now();
+        this.updatedOn = Instant .now();
     }
 
     @PreUpdate
     public void setUpdatedOn() {
-        this.updatedOn = Instant.now();
+        this.updatedOn = Instant .now();
     }
 
     @JsonIgnore
     @OneToMany(mappedBy = "users")
     private Set<Announcement> announces = new LinkedHashSet<>();
+
 
 }
 
