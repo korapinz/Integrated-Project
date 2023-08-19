@@ -3,7 +3,6 @@ package sit.int204.backend.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sit.int204.backend.dtos.UserDTO;
-import sit.int204.backend.entities.Category;
 import sit.int204.backend.entities.User;
 import sit.int204.backend.exception.ResourceNotFoundException;
 import sit.int204.backend.repositories.UserRepository;
@@ -36,7 +35,7 @@ public class UserService {
         newUser.setEmail(userDTO.getEmail());
         newUser.setRole(userDTO.getRole());
 
-            Instant now = Instant.now();
+        Instant now = Instant.now();
         newUser.setCreatedOn(now);
         newUser.setUpdatedOn(now);
 
@@ -44,18 +43,19 @@ public class UserService {
     }
 
     //Update User
-    public User updateUser(int id, UserDTO userDTO){
+    public User updateUser(int id, UserDTO userDTO) {
         User editUser = getUserById(id);
+        if (!editUser.getRole().equals(userDTO.getRole())) {
+            // If role changes, update updatedOn timestamp
+            editUser.setUpdatedOn(Instant.now());
+        }
+
         editUser.setUsername(userDTO.getUsername());
         editUser.setName(userDTO.getName());
         editUser.setEmail(userDTO.getEmail());
         editUser.setRole(userDTO.getRole());
 
-        Instant now = Instant.now();
-        editUser.setUpdatedOn(now); // Update the updatedOn timestamp
-
-        //Error Time!!!!
-        return editUser;
+        return repository.saveAndFlush(editUser);
     }
 
     // Delete User
