@@ -27,8 +27,12 @@ onMounted(async () => {
             "username": userDetail.value.username,
             "name": userDetail.value.name,
             "email": userDetail.value.email,
-            "role" : userDetail.value.role
+            "role" : userDetail.value.role,
+            "createdOn": userDetail.value.createdOn,
+            "updatedOn" : userDetail.value.updatedOn
     }
+
+    console.log(oldData.value)
 
 })
 
@@ -54,11 +58,8 @@ const cancle =()=>{
 //จะ return ค่าเป็น Boolean ถ้า user เลือก category
 const isEdit = computed(()=>{
     // console.log(edittingAnnouncement.value)
-    return  (edittingUser.value.username===undefined || edittingUser.value.name==="") ||
-    (edittingUser.value.email===undefined || edittingUser.value.role==="") 
-    || JSON.stringify(edittingUser.value) === JSON.stringify(oldData.value) 
+    return  (edittingUser.value.username===undefined|| edittingUser.value.username==="" || edittingUser.value.name===undefined || edittingUser.value.name==="" || edittingUser.value.email===undefined || edittingUser.value.email==="" || edittingUser.value.role==="" || JSON.stringify(edittingUser.value) === JSON.stringify(oldData.value) )
 })
-
 
 //ค่าของ edittingAnnouncement ค่าเริ่มต้นจะเป็นของข้อมูลเดิม และเมื่อ user แก้ไข ตัวแปรก็จะเปลี่ยนค่าตามที่ user input ค่าเข้ามา
 const edittingUser = computed(()=>{
@@ -115,11 +116,11 @@ const submit = async () =>{
         </div>
         <div class="detail">
             <p>Name</p>
-            <input type="text" placeholder="Type here" class="ann-name input input-bordered w-full max-w-xs" v-model="userDetail.name" />
+            <input type="text" placeholder="Type here" class="ann-name input input-bordered w-full max-w-xs" v-model.trim="userDetail.name" />
         </div>
         <div class="detail">
             <p>Email</p>
-            <input type="text" placeholder="Type here" class="ann-email input input-bordered w-full max-w-xs" v-model="userDetail.email" />
+            <input type="text" placeholder="Type here" class="ann-email input input-bordered w-full max-w-xs" v-model.trim="userDetail.email" />
         </div>
         <div class="form-control w-full max-w-xs detail">
             <p>Role</p>
@@ -128,8 +129,8 @@ const submit = async () =>{
             </select>
         </div>
         <div class="w-full">
-            <div><p class="ann-created-on">Created On {{ formatDate(userDetail.createdOn) }}</p></div>
-            <div><p class="ann-updated-on">Updated On {{ formatDate(userDetail.updatedOn) }}</p></div>
+            <div>Created On <span class="ann-created-on">{{ formatDate(userDetail.createdOn) }}</span></div>
+            <div>Updated On <span class="ann-updated-on">{{ formatDate(userDetail.updatedOn) }}</span></div>
         </div>
     </div>
 
