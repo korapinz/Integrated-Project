@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRoute ,useRouter } from 'vue-router'
-import { getUsers } from '../../composable/getUsers';
-import { getUserById } from '../../composable/getUserById'
-import { formatDate } from '../../composable/formatDate'
+import { getUsers } from '../composable/getUsers';
+import { getUserById } from '../composable/getUserById'
+import { formatDate } from '../composable/formatDate'
 const API_ROOT = import.meta.env.VITE_API_ROOT
 const { params } = useRoute()
 const router = useRouter()
@@ -105,7 +105,7 @@ const submit = async () =>{
 
     <div class="border border-2">
     <div class="w-full flex flex-row items-center">
-        <img src="../../assets/images/user-avatar.png" class="h-7 ml-7">
+        <img src="../assets/images/user-avatar.png" class="h-7 ml-7">
         <h1 class="text-3xl font-bold p-5">User Detail:</h1>
     </div>
 

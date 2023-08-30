@@ -1,8 +1,8 @@
 <script setup>
 import {ref,onMounted,computed} from 'vue'
-import { formatDate } from '../../composable/formatDate'
+import { formatDate } from '../composable/formatDate'
 import { useRouter } from 'vue-router'
-import { getUsers } from '../../composable/getUsers';
+import { getUsers } from '../composable/getUsers';
 const router = useRouter()
 
 
@@ -41,7 +41,7 @@ const deleteUser = async (userId) =>{
 <div class="p-4 sm:ml-64 flex flex-col">
 
     <div class="w-full flex justify-center text-3xl mb-5 mt-3">
-        <img class="h-10 mr-2" src="../../assets/images/management.png"/>
+        <img class="h-10 mr-2" src="../assets/images/management.png"/>
         <h1 class="ann-title font-bold text-gray-700">User Management</h1>
         
     </div>
@@ -59,7 +59,7 @@ const deleteUser = async (userId) =>{
         <div class="w-full flex justify-end">
           <router-link to="/admin/user/add">
             <button class="ann-button btn btn-neutral">
-                <img class="h-8 mr-1" src="../../assets/images/add-user.png" alt="GIF"/>
+                <img class="h-8 mr-1" src="../assets/images/add-user.png" alt="GIF"/>
                 Add User
             </button>
           </router-link>

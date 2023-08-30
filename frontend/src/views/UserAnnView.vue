@@ -1,8 +1,8 @@
 <script setup>  
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
-import { formatDate } from '../../composable/formatDate'
-import { userAnnouncement } from '../../Store/userMode'
+import { formatDate } from '../composable/formatDate'
+import { userAnnouncement } from '../Store/userMode'
 const API_ROOT = import.meta.env.VITE_API_ROOT
 const router = useRouter()
 
@@ -87,7 +87,7 @@ const showDetail = (announcementId) =>{
 <!---------------------------- Button Change Mode ---------------------------->
     <div class=" w-full  mt-3 justify-end flex  ">
       <div class="w-full flex justify-end"> 
-                <img class="w-40" src="../../assets/images/neko.gif" alt="GIF"/>
+                <img class="w-40" src="../assets/images/neko.gif" alt="GIF"/>
         </div>
         <div class="w-3/5 space-x-2  justify-end flex" >
             <button id="text-but" @click="changeMode" class="ann-button  mr-5 p-2 buttonclose btn">
@@ -119,7 +119,7 @@ const showDetail = (announcementId) =>{
       <h3 v-if="announcementData.length === 0 " class="mt-3 text-center text-red-600 font-bold">No Announcement</h3>
       
       <div class="w-full flex justify-start mt-10"> 
-              <img class="w-52" src="../../assets/images/mafu.png"/>
+              <img class="w-52" src="../assets/images/mafu.png"/>
       </div>
     </div>
     </div>

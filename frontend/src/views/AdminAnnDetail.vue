@@ -1,7 +1,7 @@
 <script setup>
 import {ref, onMounted } from 'vue';
 import { useRoute ,useRouter } from 'vue-router'
-import { formatDate } from '../../composable/formatDate'
+import { formatDate } from '../composable/formatDate'
 const router = useRouter()
 const { params } = useRoute()
 const API_ROOT = import.meta.env.VITE_API_ROOT
@@ -43,7 +43,7 @@ const editAnnouncement = (announcementId) =>{
         <div class="flex w-full">
 
             <div class="flex w-2/6 justify-end items-center">
-                <img src="../../assets/images/detail.png" class="h-16">
+                <img src="../assets/images/detail.png" class="h-16">
             </div>
             
         
@@ -54,7 +54,7 @@ const editAnnouncement = (announcementId) =>{
 
                  <!-- Button -->
             <div class="w-2/6 flex justify-end items-end p-2 pr-10">
-                <button @click="editAnnouncement(announcementDetail.id)" class="ann-button edit-btn"><img src="../../assets/images/edit.png" class="h-10"></button>
+                <button @click="editAnnouncement(announcementDetail.id)" class="ann-button edit-btn"><img src="../assets/images/edit.png" class="h-10"></button>
                 
             </div>
 

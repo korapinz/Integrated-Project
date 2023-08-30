@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AdminAnnView from '../views/AdminView/AdminAnnView.vue'
-import AdminAnnDetail from '../views/AdminView/AdminAnnDetail.vue'
+import AdminAnnView from '../views/AdminAnnView.vue'
+import AdminAnnDetail from '../views/AdminAnnDetail.vue'
 import CreateAnnouncement from '../views/CreateAnnouncement.vue'
 import DeleteAnnouncement from '../views/DeleteAnnouncement.vue'
 import UpdateAnnouncement from '../views/UpdateAnnouncement.vue'
-import UserAnnView from '../views/UserView/UserAnnView.vue'
-import UserAnnDetail from '../views/UserView/UserAnnDetail.vue'
-import AdminUserView from '../views/AdminView/AdminUserView.vue'
-import AdminAddUser from '../views/AdminView/AdminAddUser.vue'
-import AdminEditUser from '../views/AdminView/AdminEditUser.vue' 
-import AdminDeleteUser from '../views/AdminView/AdminDeleteUser.vue' 
+import UserAnnView from '../views/UserAnnView.vue'
+import UserAnnDetail from '../views/UserAnnDetail.vue'
+import AdminUserView from '../views/AdminUserView.vue'
+import AdminAddUser from '../views/AdminAddUser.vue'
+import AdminEditUser from '../views/AdminEditUser.vue' 
+import AdminDeleteUser from '../views/AdminDeleteUser.vue' 
 
 
 const router = createRouter({
